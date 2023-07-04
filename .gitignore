@@ -1,0 +1,12 @@
+*.zip*
+*config*xml
+.history
+.idea
+.vscode
+.DS_Store
+vendor
+dist
+docker-compose.override.yml
+docker-compose.override.arm.yml
+*.map*
+/views/js/*

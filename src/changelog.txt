@@ -1,0 +1,5 @@
+4.3.4
+    * Added option to ban SeQura in certain products.
+4.3.3
+    * Added in admin order detail page link to order in SeQura.
+    * Added changelog

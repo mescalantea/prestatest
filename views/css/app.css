@@ -1,0 +1,19 @@
+/**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License version 3.0
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * @author    SeQura Tech <dev+prestashop@sequra.es>
+ * @copyright Since 2013 SeQura WorldWide SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ */
+body #app{font-size:16px}.bootstrap #app .form-control,.bootstrap #app input[type=password],.bootstrap #app input[type=search],.bootstrap #app input[type=text],.bootstrap #app select,.bootstrap #app textarea{border:0!important;font-size:16px!important}.bootstrap #app .uneditable-input:hover,.bootstrap #app input[type=color]:hover,.bootstrap #app input[type=date]:hover,.bootstrap #app input[type=datetime-local]:hover,.bootstrap #app input[type=datetime]:hover,.bootstrap #app input[type=email]:hover,.bootstrap #app input[type=month]:hover,.bootstrap #app input[type=number]:hover,.bootstrap #app input[type=password]:focus,.bootstrap #app input[type=search]:hover,.bootstrap #app input[type=tel]:hover,.bootstrap #app input[type=text]:hover,.bootstrap #app input[type=time]:hover,.bootstrap #app input[type=url]:hover,.bootstrap #app input[type=week]:hover,.bootstrap #app textarea:hover{background-color:#fff}.bootstrap #app label.v-label{display:flex}.bootstrap .form-control[data-v-68b66dfc],.bootstrap input[type=password][data-v-68b66dfc],.bootstrap input[type=search][data-v-68b66dfc],.bootstrap input[type=text][data-v-68b66dfc],.bootstrap select[data-v-68b66dfc],.bootstrap textarea[data-v-68b66dfc]{border:0!important}

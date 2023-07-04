@@ -1,0 +1,95 @@
+/**FIX TO NOT CENTER WIDGET**/
+.sequra-promotion-widget[data-theme]{
+    max-width: 320px;
+    margin: 10px 0;
+    clear: both;
+}
+/** PS16 **/
+#sequra_cost_link.sequra-educational-popup {
+    float: right;
+}
+/** OPC **/
+#onepagecheckoutps_step_three_container img[src*="sequra"],
+#onepagecheckoutps_step_three_container img.sequrapartpayment,
+#onepagecheckoutps_step_three_container img.sequrainvoice,
+#onepagecheckoutps_step_three_container img.sequracampaign {
+    width:86px;
+    border:0px;
+    background-color: inherit;
+}
+
+/** Mini teasers **/
+small.sequra-educational-popup {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+/** Loader **/
+#lds-sequra-container{
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: left;
+    font-weight: normal;
+    z-index: 2147483647;
+    overflow-y: auto;
+}
+#lds-sequra-container>div{
+    margin: 15% auto;
+    overflow: hidden;
+}
+.lds-sequra {
+    display: block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: auto;
+}
+.lds-sequra div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #009C5C;
+    animation: lds-sequra 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-sequra div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+}
+.lds-sequra div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+}
+.lds-sequra div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+}
+@keyframes lds-sequra {
+    0% {
+        top: 8px;
+        height: 64px;
+    }
+    50%, 100% {
+        top: 24px;
+        height: 32px;
+    }
+}
+
+/** [CLS] Minimize jump due to height resize**/
+
+.sequra-promotion-widget:not([data-type]),
+.sequra-promotion-widget[data-type=text] {
+    min-height: 20px;
+ }
+ .sequra-promotion-widget[data-type=banner] {
+    min-height: 123px;
+ }
+ .sequra-promotion-widget[data-type=legacy] {
+    min-height: 101px;
+ }

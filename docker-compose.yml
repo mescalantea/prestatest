@@ -1,0 +1,98 @@
+version: '2'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./docker
+      args:
+        PRESTASHOP_VERSION: ${SQ_PRESTASHOP_VERSION:-latest}
+    container_name: ${COMPOSE_PROJECT_NAME:-sequra}_web
+    platform: ${SQ_DOCKER_PLATFORM}
+    depends_on:
+      - db
+    environment:
+      # API user
+      - SEQURA_USER=${SEQURA_USER:-dummy}
+      # API password
+      - SEQURA_PASS=${SEQURA_PASS:-ZqbjrN6bhPYVIyram3wcuQgHUmP1C4}
+      # Mercha reference
+      - SEQURA_MERCHANT_ID=${SEQURA_MERCHANT_ID:-dummy}
+      # Assets key
+      - SEQURA_ASSETS_KEY=${SEQURA_ASSETS_KEY:-ADc3ZdOLh4}
+      # Script base url for integration assets, default: https://sandbox.sequrapi.com/order
+      # - SEQURA_SANDBOX_SCRIPT_BASE_URI      
+      # Endpoint for orders api, default: https://sandbox.sequrapi.com/orders
+      # - SEQURA_SANDBOX_ENDPOINT
+
+      # When installing automatically your shop, you can tell the shop how it will be reached. For advanced users only (no default value)
+      - PS_DOMAIN=${PS_DOMAIN:-localhost.sequrapi.com:8010}
+      # If your IP / port (or domain) change between two executions of your container, you will need to modify this option:
+      # Add specific configuration to handle dynamic domain (default value: 0)
+      - PS_HANDLE_DYNAMIC_DOMAIN=${PS_HANDLE_DYNAMIC_DOMAIN:-1}
+      #The constant _PS_MODE_DEV_ will be set at true (default value: 0)
+      - PS_DEV_MODE=${PS_DEV_MODE:-1}
+      #The constant _PS_HOST_MODE_ will be set at true. Useful to simulate a PrestaShop Cloud environment. (default value: 0)
+      - PS_HOST_MODE=${PS_HOST_MODE:-0}
+      # The constant _PS_DEMO_MODE_ will be set at true. Use it to create a demonstration shop. (default value: 0)
+      # - PS_DEMO_MODE=${PS_DEMO_MODE:-1}
+      # If set, the external MySQL database will be used instead of the volatile internal one (default value: localhost)
+      - DB_SERVER=${DB_SERVER:-db}
+      # Override default MySQL user (default value: root)
+      - DB_USER=${DB_USER:-root}
+      # Override default MySQL password (default value: admin)
+      - DB_PASSWD=${DB_PASSWD:-password}
+      # Override default tables prefix (default value: ps_)
+      - DB_PREFIX=${DB_PREFIX:-ps_}
+      # Override default database name (default value: prestashop)
+      - DB_NAME=${DB_NAME:-prestashop}
+      # The installation will be executed. Useful to initialize your image faster. In some configurations, you may need to set PS_DOMAIN or PS_HANDLE_DYNAMIC_DOMAIN as well. (Please note that PrestaShop can be installed automatically from PS 1.5)
+      - PS_INSTALL_AUTO=${PS_INSTALL_AUTO:-1}
+      # Drop the mysql database. All previous mysql data will be lost (default value: 0)
+      - PS_ERASE_DB=${PS_ERASE_DB:-0}
+      # Create the mysql database. (default value: 0)
+      - PS_INSTALL_DB=${PS_INSTALL_DB:-0}
+      # Change the default language installed with PrestaShop (default value: en)
+      - PS_LANGUAGE=${PS_LANGUAGE:-es}
+      # Change the default country installed with PrestaShop (default value: GB)
+      - PS_COUNTRY=${PS_COUNTRY:-ES}
+      # Install all the existing languages for the current version. (default value: 0)
+      - PS_ALL_LANGUAGES=${PS_ALL_LANGUAGES:-0}
+      # Change the name of the admin folder (default value: admin. But will be automatically changed later)
+      - PS_FOLDER_ADMIN=${PS_FOLDER_ADMIN:-admin1}
+      # Change the name of the install folder (default value: install. But must be changed anyway later) 
+      - PS_FOLDER_INSTALL=${PS_FOLDER_INSTALL:-install1}
+      # Enable SSL at PrestaShop installation. (default value: 0)
+      - PS_ENABLE_SSL=${PS_ENABLE_SSL:-0}
+      # By default, we use the employee existing on the PrestaShop demo. But you can change it with the following parameters:
+      # - ADMIN_MAIL=${ADMIN_MAIL:-demo@prestashop.com}
+      # - ADMIN_PASSWORD=${ADMIN_PASSWORD:-prestashop_demo}
+      # - XDEBUG_CONFIG #xdebug 2 till php 7.2
+      # - XDEBUG_MODE #xdebug 3
+
+    ports:
+      - "8010:80"
+    volumes:
+      - .:/var/www/html/modules/sequra
+    extra_hosts:
+      - "localhost.sequrapi.com:host-gateway"
+  db:
+    image: mariadb:10
+    platform: ${SQ_DOCKER_PLATFORM}
+    container_name: ${COMPOSE_PROJECT_NAME:-sequra}_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=prestashop
+    ports:
+      - "3307:3306"
+    volumes:
+      - db:/var/lib/mysql
+  mailhog:
+    image: mailhog/mailhog
+    container_name: ${COMPOSE_PROJECT_NAME:-sequra}_mailhog
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 8026:8025 # web ui
+volumes:
+  db:
+  prestashop:

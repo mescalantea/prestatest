@@ -1,0 +1,57 @@
+{
+    "name": "sequra/prestashop-sequra",
+    "description": "Provide the most commonly used payment methods to your customers in this all-in-one module, and manage all your sales in a centralized interface.",
+    "homepage": "https://github.com/sequra/pretashop-sequra",
+    "license": "AFL-3.0",
+    "type": "prestashop-module",
+    "authors": [
+        {
+            "name": "seQura Tech",
+            "email": "dev+prestashop@sequra.es"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "prepend-autoloader": false
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "sequra/php-client": "~0.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "~5.7",
+        "prestashop/header-stamp": "^2.3",
+        "prestashop/php-dev-tools": "^4.3",
+        "psy/psysh": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShop\\Module\\PrestashopSequra\\": "src"
+        },
+        "classmap": [
+            "sequra.php",
+            "controllers"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "unit-tests": [
+            "@php -d date.timezone=UTC ./vendor/bin/phpunit -c tests/Unit/phpunit.xml"
+        ],
+        "set-license-header": [
+            "@php ./vendor/bin/header-stamp --license=vendor/prestashop/header-stamp/assets/afl.txt --exclude=.github,node_modules,vendor,tests,_dev"
+        ]
+    },
+    "author": "PrestaShop"
+}
