@@ -7,7 +7,7 @@ services:
       args:
         PRESTASHOP_VERSION: ${SQ_PRESTASHOP_VERSION:-latest}
     container_name: ${COMPOSE_PROJECT_NAME:-sequra}_web
-    platform: ${SQ_DOCKER_PLATFORM}
+    platform: ${SQ_DOCKER_PLATFORM:-linux/amd64}
     depends_on:
       - db
     environment:
