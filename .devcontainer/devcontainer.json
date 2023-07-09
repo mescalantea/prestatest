@@ -1,0 +1,25 @@
+{
+	"name": "prestashop-sequra",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "web",
+	"workspaceFolder": "/var/www/html/",
+	"features": {
+	},
+
+	"customizations": {
+		"vscode": {		
+			"extensions": [
+				"xdebug.php-pack",
+				"yogensia.searchwpdocs",
+				"valeryanm.vscode-phpsab",
+				"dbaeumer.vscode-eslint",
+				"apartner-top.prestashop-snippets",
+				"neilbrayfield.php-docblocker",
+				"shevaua.phpcs",
+				"ms-vscode.makefile-tools",
+				"GitHub.copilot"
+			]
+		}
+	},
+	"appPort": 80
+}
