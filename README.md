@@ -4,9 +4,8 @@ Repository for SeQura plugins for PrestaShop.
 
 ## Run with docker-compose
 
-- Change any parameter in the docker-compose.yml if needed. You might want to change SEQURA_SANDBOX_ENDPOINT or SEQURA_SANDBOX_SCRIPT_BASE_URI so that they point to your development environment.
-- Run `composer install` and then `docker compose up`
-- In order to test the configuration pages, `cd _dev` and `npm install && npm run dev`
+- Change SQ_DOCKER_PLATFORM=linux/amd64 SQ_DOCKER_PLATFORM=linux/arm64/v8 in the .env file if you are running on an M1 Mac
+- Run `docker compose up` it will take some time the first time.
 
 SeQura plugins are automatically installed.
 

@@ -72,6 +72,7 @@ services:
     ports:
       - "8010:80"
     volumes:
+      - prestashop:/var/www/html/
       - .:/var/www/html/modules/sequra
     extra_hosts:
       - "localhost.sequrapi.com:host-gateway"
