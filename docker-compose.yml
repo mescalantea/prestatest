@@ -75,6 +75,8 @@ services:
       - prestashop:/var/www/html/
       - .:/var/www/html/modules/sequra
     extra_hosts:
+    # This is needed to make the container able to reach the host machine in Linux
+      - "host.docker.internal:host-gateway"
       - "localhost.sequrapi.com:host-gateway"
   db:
     image: mariadb:10
